@@ -51,16 +51,10 @@ public class Brake {
         switch (state) {
 
             case ON:
-                s1.setPosition(onPos);
-                s2.setPosition(onPos);
-                s3.setPosition(onPos);
-                s4.setPosition(onPos);
+                setPosition(onPos);
             break;
             case OFF:
-                s1.setPosition(offPos);
-                s2.setPosition(offPos);
-                s3.setPosition(offPos);
-                s4.setPosition(offPos);
+                setPosition(offPos);
             break;
         }
     }
