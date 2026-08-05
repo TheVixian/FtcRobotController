@@ -1,21 +1,22 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-
 
 @TeleOp
-public class DecodeTest1 extends LinearOpMode {
+public class OpMode extends LinearOpMode {
 
-
+    Chassis chassis;
+    Intake intake;
     @Override
     public void runOpMode() throws InterruptedException {
-        DcMotor m = hardwareMap.get(DcMotor.class,"mch0");
+        chassis = new Chassis(hardwareMap);
+        intake = new Intake(hardwareMap);
         waitForStart();
         while(opModeIsActive()){
-            m.setPower(gamepad1.right_stick_x);
+            chassis.update(gamepad1);
+            intake.update(gamepad1);
         }
     }
+
 }
