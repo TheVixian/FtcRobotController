@@ -55,13 +55,13 @@ public class Brake {
                 s2.setPosition(onPos);
                 s3.setPosition(onPos);
                 s4.setPosition(onPos);
-
+            break;
             case OFF:
                 s1.setPosition(offPos);
                 s2.setPosition(offPos);
                 s3.setPosition(offPos);
                 s4.setPosition(offPos);
-
+            break;
         }
     }
 
