@@ -1,13 +1,12 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.robotmodules;
 
-import static org.firstinspires.ftc.teamcode.Intake.State.REVERSE;
+import static org.firstinspires.ftc.teamcode.robotmodules.Intake.State.IDLE;
+import static org.firstinspires.ftc.teamcode.robotmodules.Intake.State.INTAKE;
+import static org.firstinspires.ftc.teamcode.robotmodules.Intake.State.REVERSE;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
-
-import org.firstinspires.ftc.robotcore.external.State;
 
 public class Intake {
 
@@ -27,17 +26,30 @@ public class Intake {
     }
 
 
-
+    public void setState(State state) {
+        this.state = state;
+    }
 
     public void update(Gamepad gm1) {
+        if(gm1.left_bumper){
+            setState(REVERSE);
+        }
+        else if (gm1.right_bumper){
+            setState(INTAKE);
+        } else{
+            setState(IDLE);
+        }
+
         switch (state) {
             case IDLE:
                 intake.setPower(0);
+                break;
             case INTAKE :
                 intake.setPower(1);
-
+                break;
             case REVERSE :
                 intake.setPower(-1);
+                break;
         }
     }
 }
