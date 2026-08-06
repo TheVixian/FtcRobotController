@@ -29,12 +29,6 @@ public class Dropdown {
         this.state = state;
     }
 
-    public void setPosition(double position){
-        dropdown.setPosition(position);
-    }
-
-
-
 
     public void update(Gamepad gm1) {
         if(gm1.xWasPressed()){
